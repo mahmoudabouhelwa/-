@@ -1,0 +1,52 @@
+
+{
+  "name": "el-avvocato-app",
+  "version": "1.0.0",
+  "description": "تطبيق إدارة مكتب محاماة الأفوكاتو",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "postinstall": "electron-rebuild"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^0.14.1",
+    "bcrypt": "^5.1.1",
+    "better-sqlite3": "^9.4.3",
+    "dotenv": "^16.4.5",
+    "electron-is-dev": "^3.0.1",
+    "fs-extra": "^11.2.0",
+    "node-schedule": "^2.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^3.6.0",
+    "@types/bcrypt": "^5.0.2",
+    "@types/better-sqlite3": "^7.6.9",
+    "@types/node-schedule": "^2.1.6",
+    "@types/react": "^18.2.65",
+    "@types/react-dom": "^18.2.21",
+    "electron": "^29.1.5",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.elavvocato.app",
+    "productName": "مكتب الأفوكاتو",
+    "files": [
+      "main.js",
+      "preload.js",
+      "database.js",
+      "index.html",
+      "index.css",
+      "dist/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    }
+  }
+}

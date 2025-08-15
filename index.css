@@ -1,0 +1,642 @@
+
+:root {
+  --primary-bg: #0A192F;
+  --secondary-bg: #172a45;
+  --accent-gold: #D4AF37;
+  --accent-gold-hover: #e6c568;
+  --text-primary: #ccd6f6;
+  --text-secondary: #8892b0;
+  --border-color: #233554;
+  --error-color: #e57373;
+  --delete-color: #f44336;
+  --delete-color-hover: #e53935;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Login Page Styles */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.login-box {
+  background-color: var(--secondary-bg);
+  padding: 3rem 2.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+.login-box .logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  background-color: var(--accent-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-bg);
+}
+
+.login-box h1 {
+  color: var(--accent-gold);
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.login-box p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.login-form .form-group {
+  margin-bottom: 1.5rem;
+  text-align: right;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--primary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-family: 'Cairo', sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+
+.login-form .login-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--accent-gold);
+  color: var(--primary-bg);
+  border: none;
+  border-radius: 4px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form .login-button:hover {
+  background-color: var(--accent-gold-hover);
+}
+
+.error-message {
+  color: var(--error-color);
+  background-color: rgba(229, 115, 115, 0.1);
+  border: 1px solid var(--error-color);
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Main App Layout */
+.main-app {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--secondary-bg);
+  padding: 1.5rem;
+  border-left: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h2 {
+  color: var(--accent-gold);
+  font-size: 1.5rem;
+}
+.sidebar-header p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.sidebar-nav {
+  flex-grow: 1;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+}
+
+.sidebar-nav li a {
+  display: block;
+  padding: 0.8rem 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav li a:hover, .sidebar-nav li a.active {
+  background-color: var(--accent-gold);
+  color: var(--primary-bg);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.sidebar-footer button, .main-content-header button, .action-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    border-radius: 4px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-footer button:hover, .main-content-header button:hover, .action-btn:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-bg);
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.main-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.main-content-header h1 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+}
+.main-content-header button {
+    width: auto;
+    padding: 0.75rem 1.5rem;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background-color: var(--secondary-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.stat-card h3 {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-card .stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--accent-gold);
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  background-color: var(--accent-gold);
+  color: var(--primary-bg);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 2000;
+  font-weight: 700;
+  animation: fadeInOut 4s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; bottom: 0px; }
+  15% { opacity: 1; bottom: 20px; }
+  85% { opacity: 1; bottom: 20px; }
+  100% { opacity: 0; bottom: 0px; }
+}
+
+/* Generic Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(10, 25, 47, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+}
+
+.modal {
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+.modal-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.modal-header .close-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+.modal-body .form-group {
+    margin-bottom: 1rem;
+}
+.modal-body label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+.modal-body input, .modal-body textarea, .modal-body select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.modal-body select {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%238892b0%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: left 0.75rem center;
+    background-size: 0.8em;
+    padding-left: 2rem;
+}
+.modal-body input:focus, .modal-body textarea:focus, .modal-body select:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+}
+
+.modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.modal-footer button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+.modal-footer .btn-primary {
+    background-color: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: var(--primary-bg);
+}
+.modal-footer .btn-primary:hover {
+    background-color: var(--accent-gold-hover);
+    border-color: var(--accent-gold-hover);
+}
+.modal-footer .btn-secondary {
+    background-color: transparent;
+    border-color: var(--text-secondary);
+    color: var(--text-secondary);
+}
+.modal-footer .btn-secondary:hover {
+    background-color: var(--text-secondary);
+    color: var(--primary-bg);
+}
+.modal-footer .btn-danger {
+    background-color: var(--delete-color);
+    border-color: var(--delete-color);
+    color: white;
+}
+.modal-footer .btn-danger:hover {
+    background-color: var(--delete-color-hover);
+    border-color: var(--delete-color-hover);
+}
+
+
+/* Data Table (used for Clients & Cases) */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.data-table th, .data-table td {
+    padding: 1rem;
+    text-align: right;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table thead th {
+    background-color: #112240;
+    color: var(--accent-gold);
+    font-weight: bold;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+    background-color: #112240;
+}
+
+.data-table .actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+.data-table .action-btn {
+    width: auto;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+}
+.data-table .action-btn.delete {
+    border-color: var(--delete-color);
+    color: var(--delete-color);
+}
+.data-table .action-btn.delete:hover {
+    background-color: var(--delete-color);
+    color: white;
+}
+
+
+/* AI Assistant Styles */
+.ai-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--accent-gold);
+    color: var(--primary-bg);
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background-color 0.2s;
+    z-index: 1000;
+}
+
+.ai-fab:hover {
+    background-color: var(--accent-gold-hover);
+    transform: scale(1.1);
+}
+
+.ai-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(10, 25, 47, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+    direction: ltr; /* Ensure modal layout is LTR for structure */
+}
+
+.ai-modal {
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    width: 90%;
+    max-width: 700px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    direction: rtl; /* Set content direction back to RTL */
+}
+
+.ai-modal-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ai-modal-header h2 {
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.ai-modal-header .close-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.ai-modal-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ai-message {
+    display: flex;
+    max-width: 85%;
+}
+
+.ai-message.user {
+    align-self: flex-start; /* Correct for RTL */
+}
+
+.ai-message.ai, .ai-message.error {
+    align-self: flex-end; /* Correct for RTL */
+}
+
+.message-bubble {
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    color: var(--text-primary);
+}
+
+.ai-message.user .message-bubble {
+    background-color: var(--accent-gold);
+    color: var(--primary-bg);
+    border-top-left-radius: 0; /* Correct for RTL */
+}
+
+.ai-message.ai .message-bubble {
+    background-color: #233554;
+    border-top-right-radius: 0; /* Correct for RTL */
+}
+
+.ai-message.error .message-bubble {
+    background-color: rgba(229, 115, 115, 0.2);
+    border: 1px solid var(--error-color);
+    color: var(--error-color);
+}
+
+.ai-modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.ai-input-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.ai-input {
+    flex-grow: 1;
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    font-family: 'Cairo', sans-serif;
+}
+
+.ai-input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+}
+
+.ai-send-btn {
+    background-color: var(--accent-gold);
+    color: var(--primary-bg);
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ai-send-btn:hover {
+    background-color: var(--accent-gold-hover);
+}
+
+.ai-send-btn:disabled {
+    background-color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+.ai-loading-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.ai-loading-indicator span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-secondary);
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+.ai-loading-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.ai-loading-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
